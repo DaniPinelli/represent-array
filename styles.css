@@ -1,0 +1,60 @@
+.exerciseTitle{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.cardDiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 680px;
+}
+
+.personDiv{
+    display: flex;
+    justify-content: center;
+    width: 208px;
+    margin: 6px;
+}
+
+.faceImg{
+    margin-top: 10px;
+    height: 34px;
+    border-radius: 50%;
+    width: 20%;
+    align-self: center;
+}
+
+.personName{
+    display: flex;
+    justify-content: center; 
+    font-size: 16px;
+}
+
+.personTitle{
+    display: flex;
+    justify-content: center; 
+    font-size: 12px;
+}
+
+.buttontext{
+    height: 22px;
+    width: 57px;
+    border: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textbutton{
+    font-size: 9px;
+    padding: 0;
+    margin-top: 3px;
+}
