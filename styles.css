@@ -7,10 +7,13 @@
 .cardDiv{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
     width: 680px;
+    height: 1200px;
+    height: 200px;
 }
 
 .personDiv{
