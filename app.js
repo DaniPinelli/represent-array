@@ -3,35 +3,34 @@ const MyArray = [{"name":"Jonh Smith", "title":"Newbie Programer","buttontext":"
 
 const MyDeformedArray = [{"firstName":"Juanse Laverde", "title":"Singer","buttontext":"Sing","icon": "https://reqres.in/img/faces/7-image.jpg"},{"firstName":"Alesha Doe", "title":"Newbie","buttontext":"Add Oil","icon": "https://reqres.in/img/faces/8-image.jpg"},{"firstName":"Jonas Uala", "title":"Lier","buttontext":"View Text", "icon": "https://reqres.in/img/faces/11-image.jpg"}]
 
-let thirdArray = [];
+const resultArray = MyDeformedArray.map(item => {
+    return{
+      ...item,
+      name: `${item.firstName}`,
+      avatar: `${item.icon}`
+    }
+  })
 
-function Person(name, title, buttontext, avatar) {
-    this.name = name;
-    this.title = title;
-    this.buttontext = buttontext;
-    this.avatar = avatar;
-  }
+//console.log(resultArray);
+
+// function Person(name, title, buttontext, avatar) {
+//     this.name = name;
+//     this.title = title;
+//     this.buttontext = buttontext;
+//     this.avatar = avatar;
+//   }
 
    
 
-    for(let i = 0; i < MyDeformedArray.length; i++){
+//     for(let i = 0; i < MyDeformedArray.length; i++){
 
-      let person = new Person(MyDeformedArray[i]["firstName"],MyDeformedArray[i]["title"],MyDeformedArray[i]["buttontext"],MyDeformedArray[i]["icon"])  
+//       let person = new Person(MyDeformedArray[i]["firstName"],MyDeformedArray[i]["title"],MyDeformedArray[i]["buttontext"],MyDeformedArray[i]["icon"])  
       
-      thirdArray.push(person);
+//       thirdArray.push(person);
 
-    }
+//     }
 
- //console.log(thirdArray);
-
-// for(let i = 0; i < MyDeformedArray.length; i++){
-//     name = MyDeformedArray[i]["firstName"];
-//     title = MyDeformedArray[i]["title"];
-//     buttontext = MyDeformedArray[i]["buttontext"];
-//     avatar = MyDeformedArray[i]["icon"];
-// }
-
-const MyStudents = MyArray.concat(thirdArray);
+const MyStudents = MyArray.concat(resultArray);
 let arrayHTML = "";
 
 for (let i = 0; i < MyStudents.length; i++) {
