@@ -11,47 +11,51 @@ const resultArray = MyDeformedArray.map(item => {
     }
   })
 
-//console.log(resultArray);
-
-// function Person(name, title, buttontext, avatar) {
-//     this.name = name;
-//     this.title = title;
-//     this.buttontext = buttontext;
-//     this.avatar = avatar;
-//   }
-
-   
-
-//     for(let i = 0; i < MyDeformedArray.length; i++){
-
-//       let person = new Person(MyDeformedArray[i]["firstName"],MyDeformedArray[i]["title"],MyDeformedArray[i]["buttontext"],MyDeformedArray[i]["icon"])  
-      
-//       thirdArray.push(person);
-
-//     }
-
 const MyStudents = MyArray.concat(resultArray);
 let arrayHTML = "";
 
-for (let i = 0; i < MyStudents.length; i++) {
+let printHtml = (array) => {
+
+  for (let i = 0; i < array.length; i++) {
     arrayHTML += '<div class="card personDiv">\
-        <img src= " ' + MyStudents[i]["avatar"] + ' " class="faceImg" alt="avatar">\
+        <img src= " ' + array[i]["avatar"] + ' " class="faceImg" alt="avatar">\
         <div class="card-body">\
-        <h5 class="personName">' + MyStudents[i]["name"] + '</h5>\
-        <p class="personTitle">' + MyStudents[i]["title"] + '</p>\
-        <a href="#" class="btn-primary buttontext" style="padding:0"><span class="textbutton">' + MyStudents[i]["buttontext"] + '</span></a>\
+        <h5 class="personName">' + array[i]["name"] + '</h5>\
+        <p class="personTitle">' + array[i]["title"] + '</p>\
+        <a href="#" class="btn-primary buttontext" style="padding:0"><span class="textbutton">' + array[i]["buttontext"] + '</span></a>\
         </div>\
         </div>'
         }
+}
 
-    let arrayDiv = document.getElementById("arrayDiv");
-     arrayDiv.innerHTML = arrayHTML;
+printHtml(MyStudents);
 
+   let labelSearch = document.getElementById("labelSearch");
+   let buttonSearch = document.getElementById("buttonSearch");
+
+  
+  labelSearch.onkeyup=() => {
+
+  let searched = labelSearch.value;
+  let result = MyStudents.filter(student => student.name.toLowerCase().includes(searched.toLowerCase()));
    
+  printHtml(result);
+}
+
+
+
+let arrayDiv = document.getElementById("arrayDiv");
+arrayDiv.innerHTML = arrayHTML;
+
+
+
+ 
+
+ 
     
 
 
-
+  
 
 
 
