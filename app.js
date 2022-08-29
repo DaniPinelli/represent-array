@@ -12,10 +12,10 @@ const resultArray = MyDeformedArray.map(item => {
   })
 
 const MyStudents = MyArray.concat(resultArray);
-let arrayHTML = "";
+let arrayHTML = [];
 
 let printHtml = (array) => {
-
+  arrayHTML=[]
   for (let i = 0; i < array.length; i++) {
     arrayHTML += '<div class="card personDiv">\
         <img src= " ' + array[i]["avatar"] + ' " class="faceImg" alt="avatar">\
@@ -26,26 +26,29 @@ let printHtml = (array) => {
         </div>\
         </div>'
         }
+
+      let arrayDiv = document.getElementById("arrayDiv");
+      arrayDiv.innerHTML = arrayHTML;
 }
 
-printHtml(MyStudents);
-
-   let labelSearch = document.getElementById("labelSearch");
-   let buttonSearch = document.getElementById("buttonSearch");
+   
+let labelSearch = document.getElementById("labelSearch");
+let buttonSearch = document.getElementById("buttonSearch");
 
   
-  labelSearch.onkeyup=() => {
-
-  let searched = labelSearch.value;
-  let result = MyStudents.filter(student => student.name.toLowerCase().includes(searched.toLowerCase()));
-   
-  printHtml(result);
+labelSearch.onkeyup=() => {
+  FilterResults(labelSearch.value);
 }
 
+function FilterResults(value) {
+   let result = MyStudents.filter(student => student.name.toLowerCase().includes(value?.toLowerCase()));
+
+   value ? printHtml(result) : printHtml(MyStudents);
+}
+
+FilterResults();
 
 
-let arrayDiv = document.getElementById("arrayDiv");
-arrayDiv.innerHTML = arrayHTML;
 
 
 
